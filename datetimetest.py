@@ -17,3 +17,4 @@ last_unix = time.mktime(last_date.timetuple())
 #above statement is for python 2.7
 #last_date.timestamp() works with python 3
 print(last_unix)
+print(curr)
