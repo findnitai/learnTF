@@ -3,8 +3,8 @@ from tensorflow.examples.tutorials.mnist import input_data
 mnist = input_data.read_data_sets("/tmp/data/", one_hot = True)
 
 n_nodes_hl1 = 500
-n_nodes_hl2 = 500
-n_nodes_hl3 = 500
+n_nodes_hl2 = 1000
+n_nodes_hl3 =1500
 
 n_classes = 10
 batch_size = 100
@@ -47,12 +47,12 @@ def train_neural_network(x):
     cost = tf.reduce_mean( tf.nn.softmax_cross_entropy_with_logits(logits=prediction, labels=y) )
     optimizer = tf.train.AdamOptimizer().minimize(cost)
     
-    hm_epochs = 10
+    hm_epochs = 2
     with tf.Session() as sess:
         # OLD:
-        sess.run(tf.initialize_all_variables())
+        #sess.run(tf.initialize_all_variables())
         # NEW:
-        #sess.run(tf.global_variables_initializer())
+        sess.run(tf.global_variables_initializer())
 
         for epoch in range(hm_epochs):
             epoch_loss = 0
